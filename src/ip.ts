@@ -104,8 +104,8 @@ export function ipv6ToBigInt(ip: string): bigint {
   const parts = s.split("::");
   if (parts.length > 2) throw new Error("Invalid IPv6 address (too many '::')");
 
-  const leftPart = parts[0];
-  const rightPart = parts.length === 2 ? parts[1] : "";
+  const leftPart = parts[0] ?? "";
+  const rightPart = parts.length === 2 ? (parts[1] ?? "") : "";
 
   const left = leftPart.length ? leftPart.split(":") : [];
   const right = rightPart.length ? rightPart.split(":") : [];
@@ -212,8 +212,9 @@ export function parseCidr(input: string): NormalisedCidr {
   const parts = trimmed.split("/");
   if (parts.length !== 2) throw new Error("Invalid CIDR (expected address/prefix)");
 
-  const addrStr = parts[0].trim();
-  const prefixStr = parts[1].trim();
+  const addrStr = parts[0]?.trim();
+  const prefixStr = parts[1]?.trim();
+  if (!addrStr || !prefixStr) throw new Error("Invalid CIDR (expected address/prefix)");
   if (!/^\d+$/.test(prefixStr)) throw new Error("Invalid CIDR prefix");
 
   const prefix = Number(prefixStr);
