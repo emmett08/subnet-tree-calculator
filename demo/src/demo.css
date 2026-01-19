@@ -1,0 +1,57 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif;
+  background: #0f1115;
+  color: #f2f4f8;
+}
+
+.demo {
+  padding: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.demo__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: end;
+  margin-bottom: 12px;
+}
+
+.demo__title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.demo__subtitle {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+.demo__controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.demo__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.demo__footer {
+  margin-top: 10px;
+  font-size: 13px;
+  opacity: 0.75;
+}

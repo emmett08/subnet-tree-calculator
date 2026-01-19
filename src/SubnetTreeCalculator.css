@@ -1,0 +1,256 @@
+.stc {
+  /* Theme tokens (override these via props.theme or CSS variables) */
+  --stc-fontFamily: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial,
+    sans-serif;
+  --stc-monoFamily: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  --stc-bg: #ffffff;
+  --stc-panelBg: #ffffff;
+  --stc-canvasBg: #fafafa;
+  --stc-border: #d9d9d9;
+
+  --stc-text: #1a1a1a;
+  --stc-mutedText: #666666;
+
+  --stc-linkStroke: #b0b0b0;
+
+  --stc-nodeFill: #ffffff;
+  --stc-nodeStroke: #8b8b8b;
+  --stc-nodeStrokeSelected: #2f6fed;
+  --stc-nodeStrokeDisabled: #c7c7c7;
+
+  --stc-buttonBg: #f6f6f6;
+  --stc-buttonText: #1a1a1a;
+  --stc-buttonBorder: #8b8b8b;
+
+  --stc-buttonPrimaryBg: #eef4ff;
+  --stc-buttonPrimaryBorder: #2f6fed;
+
+  --stc-buttonOkBg: #effaf2;
+  --stc-buttonOkBorder: #1a8f3c;
+
+  --stc-hintBg: rgba(255, 255, 255, 0.85);
+  --stc-error: #b00020;
+
+  font-family: var(--stc-fontFamily);
+  color: var(--stc-text);
+  background: var(--stc-bg);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stc__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+}
+
+.stc__label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--stc-mutedText);
+}
+
+.stc__input {
+  padding: 8px 10px;
+  border: 1px solid var(--stc-border);
+  border-radius: 10px;
+  min-width: 280px;
+  color: var(--stc-text);
+  background: var(--stc-panelBg);
+  outline: none;
+}
+
+.stc__input--number {
+  min-width: 96px;
+  width: 96px;
+}
+
+.stc__button {
+  padding: 8px 12px;
+  border: 1px solid var(--stc-buttonBorder);
+  background: var(--stc-buttonBg);
+  color: var(--stc-buttonText);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.stc__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.stc__button--primary {
+  border-color: var(--stc-buttonPrimaryBorder);
+  background: var(--stc-buttonPrimaryBg);
+}
+
+.stc__button--ok {
+  border-color: var(--stc-buttonOkBorder);
+  background: var(--stc-buttonOkBg);
+}
+
+.stc__error {
+  color: var(--stc-error);
+  font-size: 14px;
+  align-self: center;
+}
+
+.stc__main {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.stc__canvas {
+  flex: 1;
+  border: 1px solid var(--stc-border);
+  border-radius: 12px;
+  background: var(--stc-canvasBg);
+  position: relative;
+  overflow: hidden;
+}
+
+.stc__svg {
+  display: block;
+}
+
+.stc__hint {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  font-size: 13px;
+  color: var(--stc-mutedText);
+  background: var(--stc-hintBg);
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--stc-border);
+}
+
+.stc__sidebar {
+  width: 380px;
+  border: 1px solid var(--stc-border);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--stc-panelBg);
+  overflow: auto;
+}
+
+.stc__h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.stc__h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+}
+
+.stc__card {
+  border: 1px solid var(--stc-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  background: var(--stc-panelBg);
+}
+
+.stc__kv {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 6px 10px;
+  font-size: 14px;
+}
+
+.stc__mono {
+  font-family: var(--stc-monoFamily);
+  word-break: break-all;
+}
+
+.stc__muted {
+  color: var(--stc-mutedText);
+  font-size: 13px;
+}
+
+.stc__binaryBlock {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--stc-border);
+}
+
+.stc__binaryLabel {
+  font-size: 13px;
+  color: var(--stc-mutedText);
+  margin-bottom: 4px;
+}
+
+.stc__binaryPre {
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--stc-border);
+  border-radius: 10px;
+  background: var(--stc-canvasBg);
+  font-family: var(--stc-monoFamily);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.stc__leaves {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stc__leafRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.stc__leafActions {
+  margin-top: 10px;
+}
+
+/* SVG styling */
+.stc__link {
+  fill: none;
+  stroke: var(--stc-linkStroke);
+  stroke-width: 2.5;
+}
+
+.stc__nodeRect {
+  fill: var(--stc-nodeFill);
+  stroke: var(--stc-nodeStroke);
+  stroke-width: 2;
+}
+
+.stc__node--selected .stc__nodeRect {
+  stroke: var(--stc-nodeStrokeSelected);
+  stroke-width: 4;
+}
+
+.stc__node--disabled .stc__nodeRect {
+  stroke: var(--stc-nodeStrokeDisabled);
+}
+
+.stc__nodeText {
+  pointer-events: none;
+  font-size: 12px;
+}
+
+.stc__nodeTitle {
+  fill: var(--stc-text);
+  font-weight: 650;
+}
+
+.stc__nodeSub {
+  fill: var(--stc-mutedText);
+}
