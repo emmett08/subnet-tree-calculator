@@ -14,6 +14,10 @@
     "networking"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmett08/subnet-tree-calculator.git"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -32,6 +36,9 @@
     "LICENSE",
     "assets"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "sideEffects": [
     "**/*.css"
   ],
