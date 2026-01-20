@@ -10,7 +10,6 @@
     "emitDeclarationOnly": false,
     "strict": true,
     "skipLibCheck": true,
-    "ignoreDeprecations": "6.0",
     "noUncheckedIndexedAccess": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

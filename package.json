@@ -23,7 +23,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "subnet-calc": "./dist/cli.js"
+    "subnet-calc": "dist/cli.js"
   },
   "exports": {
     ".": {
@@ -49,7 +49,7 @@
     "dev": "vite --config demo/vite.config.ts",
     "build": "tsup && npm run build:css",
     "build:css": "node ./scripts/copy-css.mjs",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
@@ -64,7 +64,7 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:demo": "concurrently -k -s first -n \"DEV,CYPRESS\" -c \"cyan,green\" \"npm run dev\" \"wait-on http://localhost:5173 && cypress run --spec cypress/e2e/subnet-tree-demo.cy.ts\"",
-    "lint": "tsc --noEmit && echo 'Lint passed'",
+    "lint": "tsc -p tsconfig.build.json --noEmit && echo 'Lint passed'",
     "verify": "npm run lint && npm run test:run && npm run storybook:build && npm run test-storybook"
   },
   "peerDependencies": {
@@ -83,6 +83,7 @@
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
     "@types/d3": "^7.4.3",
+    "@types/node": "^25.0.9",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.3.1",
