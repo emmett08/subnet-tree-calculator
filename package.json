@@ -61,6 +61,9 @@
     "storybook:serve": "http-server storybook-static -p 6006 -s",
     "test-storybook": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run storybook:serve\" \"wait-on http://127.0.0.1:6006 && test-storybook --url http://127.0.0.1:6006\"",
     "test-storybook:ci": "npm run storybook:build && npm run test-storybook",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:demo": "concurrently -k -s first -n \"DEV,CYPRESS\" -c \"cyan,green\" \"npm run dev\" \"wait-on http://localhost:5173 && cypress run --spec cypress/e2e/subnet-tree-demo.cy.ts\"",
     "lint": "tsc --noEmit && echo 'Lint passed'",
     "verify": "npm run lint && npm run test:run && npm run storybook:build && npm run test-storybook"
   },
