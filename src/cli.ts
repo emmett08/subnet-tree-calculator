@@ -5,7 +5,6 @@ import { subnetMeta } from "./core/calculations";
 import { splitBinary } from "./core/transformations";
 import { allocateVlsm } from "./core/vlsm";
 import { exportToJson, exportToCsv, exportToMarkdown, exportToTerraform } from "./core/export";
-import type { NormalisedCidr } from "./core/types";
 
 // Helper to convert BigInt to string for JSON serialization
 function bigIntReplacer(_key: string, value: unknown): unknown {
