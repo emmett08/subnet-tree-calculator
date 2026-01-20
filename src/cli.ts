@@ -153,7 +153,14 @@ function main(): void {
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  main();
+// Run if this file is being executed directly
+if (import.meta.url.startsWith('file://')) {
+  const modulePath = import.meta.url.slice(7);
+  const scriptPath = process.argv[1];
+
+  // Check if this module is being run directly (handles symlinks)
+  if (modulePath === scriptPath || modulePath.endsWith('/cli.js')) {
+    main();
+  }
 }
 
