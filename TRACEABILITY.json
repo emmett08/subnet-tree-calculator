@@ -1,0 +1,675 @@
+{
+  "FR-001": {
+    "description": "Accept IPv4 input in dotted-decimal with CIDR or netmask",
+    "impl": ["src/core/parser.ts"],
+    "tests": ["src/core/parser.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-002": {
+    "description": "Accept IPv6 input in compressed or full notation with CIDR",
+    "impl": ["src/core/parser.ts"],
+    "tests": ["src/core/parser.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-003": {
+    "description": "Accept IP ranges and convert to minimal covering prefixes",
+    "impl": ["src/core/parser.ts"],
+    "tests": ["src/core/parser.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-004": {
+    "description": "Canonicalise all inputs internally",
+    "impl": ["src/core/parser.ts"],
+    "tests": ["src/core/parser.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-005": {
+    "description": "Validate inputs with precise error messages",
+    "impl": ["src/core/parser.ts"],
+    "tests": ["src/core/parser.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-006": {
+    "description": "Classify special ranges (private, loopback, multicast, documentation)",
+    "impl": ["src/core/parser.ts"],
+    "tests": ["src/core/parser.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-010": {
+    "description": "Compute IPv4 network, broadcast, usable range, counts",
+    "impl": ["src/core/calculations.ts"],
+    "tests": ["src/core/calculations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-011": {
+    "description": "Compute IPv6 network range and address space size",
+    "impl": ["src/core/calculations.ts"],
+    "tests": ["src/core/calculations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-012": {
+    "description": "Compute reverse-DNS boundaries",
+    "impl": ["src/core/calculations.ts"],
+    "tests": ["src/core/calculations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-013": {
+    "description": "Provide binary and bit-boundary visualisations",
+    "impl": ["src/core/calculations.ts"],
+    "tests": ["src/core/calculations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-020": {
+    "description": "Binary split of a prefix",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-021": {
+    "description": "Split into N equal subnets",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-022": {
+    "description": "Split by required host count",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-023": {
+    "description": "Merge sibling prefixes",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-024": {
+    "description": "Summarise a set of prefixes",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-025": {
+    "description": "Compute minimal covering supernet",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-030": {
+    "description": "Check IP containment",
+    "impl": ["src/core/set-operations.ts"],
+    "tests": ["src/core/set-operations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-031": {
+    "description": "Check prefix containment",
+    "impl": ["src/core/set-operations.ts"],
+    "tests": ["src/core/set-operations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-032": {
+    "description": "Detect overlaps",
+    "impl": ["src/core/set-operations.ts"],
+    "tests": ["src/core/set-operations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-033": {
+    "description": "Detect adjacency and merge eligibility",
+    "impl": ["src/core/set-operations.ts"],
+    "tests": ["src/core/set-operations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-034": {
+    "description": "Compute union / intersection / difference",
+    "impl": ["src/core/set-operations.ts"],
+    "tests": ["src/core/set-operations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-040": {
+    "description": "Allocate VLSM subnets under a parent",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-041": {
+    "description": "Support allocation strategies (largest-first, balanced, etc.)",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-042": {
+    "description": "Support reserved/unallocatable blocks",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-043": {
+    "description": "Attach metadata to subnets",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-044": {
+    "description": "Track allocation state",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-045": {
+    "description": "Enforce allocation policies and constraints",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-050": {
+    "description": "Visualise subnet hierarchy as a binary tree",
+    "impl": ["src/SubnetTreeCalculator.tsx"],
+    "tests": ["src/SubnetTreeCalculator.layout.test.tsx"],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "FR-051": {
+    "description": "Ensure leaf nodes never overlap visually",
+    "impl": ["src/SubnetTreeCalculator.tsx"],
+    "tests": ["src/SubnetTreeCalculator.layout.test.tsx"],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "FR-052": {
+    "description": "Support node selection with sticky focus",
+    "impl": ["src/SubnetTreeCalculator.tsx"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "FR-053": {
+    "description": "Display floating property panel for selected node",
+    "impl": ["src/SubnetTreeCalculator.tsx"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "FR-054": {
+    "description": "Support pan, zoom, fit-to-view",
+    "impl": ["src/SubnetTreeCalculator.tsx"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "FR-055": {
+    "description": "Fully themeable UI (light/dark)",
+    "impl": ["src/SubnetTreeCalculator.tsx", "src/SubnetTreeCalculator.css"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "FR-056": {
+    "description": "Collapse/expand subtrees",
+    "impl": ["src/SubnetTreeCalculator.tsx", "src/SubnetTreeCalculator.css"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "FR-057": {
+    "description": "Visual cues for invalid, reserved, or deprecated subnets",
+    "impl": ["src/SubnetTreeCalculator.tsx", "src/SubnetTreeCalculator.css"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "FR-060": {
+    "description": "Search subnets by metadata",
+    "impl": ["src/core/search.ts"],
+    "tests": ["src/core/search.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-061": {
+    "description": "Longest-prefix-match lookup for IPs",
+    "impl": ["src/core/service.ts"],
+    "tests": ["src/core/service.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-062": {
+    "description": "Navigate parent/child lineage",
+    "impl": ["src/core/search.ts"],
+    "tests": ["src/core/search.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-063": {
+    "description": "Filter by IP version, size, status",
+    "impl": ["src/core/search.ts"],
+    "tests": ["src/core/search.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-070": {
+    "description": "Export subnet data (JSON, CSV, Markdown)",
+    "impl": ["src/core/export.ts"],
+    "tests": ["src/core/export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-071": {
+    "description": "Export full design model",
+    "impl": ["src/core/export.ts"],
+    "tests": ["src/core/export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-072": {
+    "description": "Import designs with validation",
+    "impl": ["src/core/export.ts"],
+    "tests": ["src/core/export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-073": {
+    "description": "Export IaC-friendly artefacts",
+    "impl": ["src/core/export.ts"],
+    "tests": ["src/core/export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-074": {
+    "description": "Provide programmatic API",
+    "impl": ["src/core/service.ts"],
+    "tests": ["src/core/service.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-075": {
+    "description": "Provide CLI interface",
+    "impl": ["src/cli.ts"],
+    "tests": ["src/cli.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-080": {
+    "description": "Track design changes",
+    "impl": ["src/core/changes.ts"],
+    "tests": ["src/core/changes.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-081": {
+    "description": "Diff designs",
+    "impl": ["src/core/changes.ts"],
+    "tests": ["src/core/changes.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-082": {
+    "description": "Support notes and references",
+    "impl": ["src/core/notes.ts"],
+    "tests": ["src/core/notes.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-083": {
+    "description": "Export read-only reports (PDF/PNG/SVG)",
+    "impl": ["src/core/visual-export.ts"],
+    "tests": ["src/core/visual-export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-090": {
+    "description": "Prevent invalid prefixes",
+    "impl": ["src/core/parser.ts"],
+    "tests": ["src/core/parser.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-091": {
+    "description": "Offer corrective normalisation",
+    "impl": ["src/core/parser.ts"],
+    "tests": ["src/core/parser.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-092": {
+    "description": "Warn on edge cases (/31, /32, /127)",
+    "impl": ["src/core/warnings.ts"],
+    "tests": ["src/core/warnings.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "FR-093": {
+    "description": "Support policy constraints",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-001": {
+    "description": "Calculate single IPv4 prefix metadata",
+    "impl": ["src/core/calculations.ts", "src/core/service.ts"],
+    "tests": ["src/core/calculations.test.ts", "src/core/service.test.ts"],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-002": {
+    "description": "Calculate single IPv6 prefix metadata",
+    "impl": ["src/core/calculations.ts", "src/core/service.ts"],
+    "tests": ["src/core/calculations.test.ts", "src/core/service.test.ts"],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-003": {
+    "description": "Display binary representation with prefix highlighting",
+    "impl": ["src/core/calculations.ts"],
+    "tests": ["src/core/calculations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-004": {
+    "description": "Compute reverse DNS zones",
+    "impl": ["src/core/calculations.ts"],
+    "tests": ["src/core/calculations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-010": {
+    "description": "Binary split a prefix",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-011": {
+    "description": "Split into N equal subnets",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-012": {
+    "description": "Split by required host count",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-013": {
+    "description": "Merge sibling prefixes",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-014": {
+    "description": "Summarise a set of prefixes",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-015": {
+    "description": "Compute minimal covering supernet",
+    "impl": ["src/core/transformations.ts"],
+    "tests": ["src/core/transformations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-020": {
+    "description": "Check IP containment",
+    "impl": ["src/core/set-operations.ts"],
+    "tests": ["src/core/set-operations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-021": {
+    "description": "Check prefix containment",
+    "impl": ["src/core/set-operations.ts"],
+    "tests": ["src/core/set-operations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-022": {
+    "description": "Detect overlaps with conflict pairs",
+    "impl": ["src/core/set-operations.ts"],
+    "tests": ["src/core/set-operations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-023": {
+    "description": "Detect adjacency",
+    "impl": ["src/core/set-operations.ts"],
+    "tests": ["src/core/set-operations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-024": {
+    "description": "Compute union/intersection/difference",
+    "impl": ["src/core/set-operations.ts"],
+    "tests": ["src/core/set-operations.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-030": {
+    "description": "Allocate VLSM subnets with largest-first strategy",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-031": {
+    "description": "Allocate VLSM subnets with smallest-first strategy",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-032": {
+    "description": "Allocate VLSM subnets with packed-low strategy",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-033": {
+    "description": "Allocate VLSM subnets with balanced strategy",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-034": {
+    "description": "Support reserved blocks in VLSM allocation",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-035": {
+    "description": "Attach metadata to allocated subnets",
+    "impl": ["src/core/vlsm.ts"],
+    "tests": ["src/core/vlsm.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-040": {
+    "description": "Visualise subnet tree with pan/zoom",
+    "impl": ["src/SubnetTreeCalculator.tsx"],
+    "tests": ["src/SubnetTreeCalculator.layout.test.tsx"],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-041": {
+    "description": "Ensure leaf nodes never overlap visually",
+    "impl": ["src/SubnetTreeCalculator.tsx"],
+    "tests": ["src/SubnetTreeCalculator.layout.test.tsx"],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-042": {
+    "description": "Select nodes with sticky focus",
+    "impl": ["src/SubnetTreeCalculator.tsx"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-043": {
+    "description": "Display floating property panel for selected node",
+    "impl": ["src/SubnetTreeCalculator.tsx", "src/SubnetTreeCalculator.css"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-044": {
+    "description": "Support pan, zoom, fit-to-view",
+    "impl": ["src/SubnetTreeCalculator.tsx"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-045": {
+    "description": "Switch between light and dark themes",
+    "impl": ["src/SubnetTreeCalculator.tsx"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-046": {
+    "description": "Collapse/expand subtrees interactively",
+    "impl": ["src/SubnetTreeCalculator.tsx", "src/SubnetTreeCalculator.css"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-047": {
+    "description": "Visual status indicators for subnet states",
+    "impl": ["src/SubnetTreeCalculator.tsx", "src/SubnetTreeCalculator.css"],
+    "tests": [],
+    "stories": ["src/SubnetTreeCalculator.stories.tsx"],
+    "status": "COMPLETE"
+  },
+  "UC-050": {
+    "description": "Search subnets by metadata",
+    "impl": ["src/core/search.ts"],
+    "tests": ["src/core/search.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-051": {
+    "description": "Filter subnets by criteria",
+    "impl": ["src/core/search.ts"],
+    "tests": ["src/core/search.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-052": {
+    "description": "Navigate parent/child hierarchy",
+    "impl": ["src/core/search.ts"],
+    "tests": ["src/core/search.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-053": {
+    "description": "Find ancestors and descendants",
+    "impl": ["src/core/search.ts"],
+    "tests": ["src/core/search.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-060": {
+    "description": "Export subnets to JSON",
+    "impl": ["src/core/export.ts"],
+    "tests": ["src/core/export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-061": {
+    "description": "Export subnets to CSV",
+    "impl": ["src/core/export.ts"],
+    "tests": ["src/core/export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-062": {
+    "description": "Export subnets to Markdown",
+    "impl": ["src/core/export.ts"],
+    "tests": ["src/core/export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-063": {
+    "description": "Export design model with metadata",
+    "impl": ["src/core/export.ts"],
+    "tests": ["src/core/export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-064": {
+    "description": "Import design model from JSON",
+    "impl": ["src/core/export.ts"],
+    "tests": ["src/core/export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-065": {
+    "description": "Export Terraform variables",
+    "impl": ["src/core/export.ts"],
+    "tests": ["src/core/export.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-070": {
+    "description": "Track design changes",
+    "impl": ["src/core/changes.ts"],
+    "tests": ["src/core/changes.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-071": {
+    "description": "Diff two design versions",
+    "impl": ["src/core/changes.ts"],
+    "tests": ["src/core/changes.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-072": {
+    "description": "Add notes and references to subnets",
+    "impl": ["src/core/notes.ts"],
+    "tests": ["src/core/notes.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  },
+  "UC-073": {
+    "description": "Search notes and references",
+    "impl": ["src/core/notes.ts"],
+    "tests": ["src/core/notes.test.ts"],
+    "stories": [],
+    "status": "COMPLETE"
+  }
+}
+

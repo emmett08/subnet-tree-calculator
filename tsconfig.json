@@ -15,7 +15,12 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@lib": ["./src"],
+      "@lib/*": ["./src/*"]
+    }
   },
   "include": ["src", "demo"],
   "exclude": ["node_modules", "dist"]

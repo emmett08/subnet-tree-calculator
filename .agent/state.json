@@ -1,0 +1,15 @@
+{
+  "startedAt": "2026-01-19T23:18:02.769Z",
+  "iteration": 1,
+  "builder": {
+    "exitCriteriaMet": false,
+    "wantsRefactor": false
+  },
+  "verifier": {
+    "verdict": "UNKNOWN",
+    "refactorRecommended": false
+  },
+  "refactorer": {
+    "ranCount": 0
+  }
+}

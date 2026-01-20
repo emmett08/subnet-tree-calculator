@@ -22,6 +22,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "subnet-calc": "./dist/cli.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -47,10 +50,19 @@
     "build": "tsup && npm run build:css",
     "build:css": "node ./scripts/copy-css.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "demo:build": "vite build --config demo/vite.config.ts",
     "demo:preview": "vite preview --config demo/vite.config.ts",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "storybook:serve": "http-server storybook-static -p 6006 -s",
+    "test-storybook": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run storybook:serve\" \"wait-on http://127.0.0.1:6006 && test-storybook --url http://127.0.0.1:6006\"",
+    "test-storybook:ci": "npm run storybook:build && npm run test-storybook",
+    "lint": "tsc --noEmit && echo 'Lint passed'",
+    "verify": "npm run lint && npm run test:run && npm run storybook:build && npm run test-storybook"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -60,18 +72,29 @@
     "d3": "^7.9.0"
   },
   "devDependencies": {
-    "@types/d3": "^7.4.3",
-    "@types/react": "^19.2.8",
-    "@types/react-dom": "^19.2.3",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/react-vite": "^8.6.14",
     "@storybook/test": "^8.6.14",
+    "@storybook/test-runner": "^0.24.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/d3": "^7.4.3",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/ui": "^4.0.17",
+    "concurrently": "^9.2.1",
+    "happy-dom": "^20.3.3",
+    "http-server": "^14.1.1",
+    "jsdom": "^27.4.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "storybook": "^8.6.14",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4",
-    "vite": "^5.4.2"
+    "vite": "^5.4.2",
+    "vitest": "^4.0.17",
+    "wait-on": "^9.0.3"
   }
 }

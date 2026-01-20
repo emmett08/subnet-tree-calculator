@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { SubnetTreeCalculator } from "@lib/SubnetTreeCalculator";
+import { SubnetTreeCalculator } from "@lib";
 import "@lib/SubnetTreeCalculator.css";
 
 const darkTheme = {

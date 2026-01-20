@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as d3 from "d3";
-import type { IpVersion } from "./ip";
-import { binaryWithPrefix, formatCidr, formatCount, parseCidr, subnetMeta } from "./ip";
+import type { IpVersion } from "./core/types";
+import { formatCidr, parseCidr } from "./core/parser";
+import { binaryWithPrefix, formatCount, subnetMeta } from "./core/calculations";
+import { truncateMiddle, truncateStart } from "./utils/string-utils";
 
 export type SubnetTreeTheme = Partial<{
   fontFamily: string;
@@ -68,22 +70,9 @@ type SubnetNode = {
   prefix: number;
   path: string;
   children?: [SubnetNode, SubnetNode];
+  collapsed?: boolean;
+  status?: 'VALID' | 'INVALID' | 'RESERVED' | 'DEPRECATED';
 };
-
-function truncateMiddle(s: string, maxChars: number): string {
-  if (s.length <= maxChars) return s;
-  if (maxChars <= 3) return s.slice(0, maxChars);
-  const keep = maxChars - 1;
-  const left = Math.ceil(keep / 2);
-  const right = Math.floor(keep / 2);
-  return `${s.slice(0, left)}…${s.slice(s.length - right)}`;
-}
-
-function truncateStart(s: string, maxChars: number): string {
-  if (s.length <= maxChars) return s;
-  if (maxChars <= 1) return "…";
-  return `…${s.slice(s.length - (maxChars - 1))}`;
-}
 
 function useResizeObserver<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
@@ -190,6 +179,23 @@ function toggleSplit(
   return { ...node, children: [na, nb] };
 }
 
+function toggleCollapse(node: SubnetNode, targetId: string): SubnetNode {
+  if (node.id === targetId) {
+    return { ...node, collapsed: !node.collapsed };
+  }
+
+  if (!node.children) return node;
+
+  const a = node.children[0];
+  const b = node.children[1];
+
+  const na = toggleCollapse(a, targetId);
+  const nb = toggleCollapse(b, targetId);
+
+  if (na === a && nb === b) return node;
+  return { ...node, children: [na, nb] };
+}
+
 function cssVarsFromTheme(theme?: SubnetTreeTheme): React.CSSProperties {
   if (!theme) return {};
   const v: React.CSSProperties = {};
@@ -275,7 +281,11 @@ export function SubnetTreeCalculator({
   }, [cidrInput, makeId]);
 
   const { nodes, links } = useMemo(() => {
-    const h = d3.hierarchy<SubnetNode>(root, (d) => (d.children ? (d.children as unknown as SubnetNode[]) : undefined));
+    // Respect collapsed flag when building hierarchy
+    const h = d3.hierarchy<SubnetNode>(root, (d) => {
+      if (d.collapsed) return undefined;
+      return d.children ? (d.children as unknown as SubnetNode[]) : undefined;
+    });
 
     const dx = nodeWidth + xGap;
     const dy = nodeHeight + yGap;
@@ -382,6 +392,13 @@ export function SubnetTreeCalculator({
     setRoot((prevRoot) => toggleSplit(prevRoot, selectedId, makeId, prevRoot.prefix, maxDepth));
   }, [selectedId, makeId, maxDepth]);
 
+  const toggleCollapseSelected = useCallback(() => {
+    setRoot((prevRoot) => toggleCollapse(prevRoot, selectedId));
+  }, [selectedId]);
+
+  const canCollapseSelected = !!selectedNode.children && !selectedNode.collapsed;
+  const canExpandSelected = !!selectedNode.children && selectedNode.collapsed;
+
   const nextSplitPreview = useMemo(() => {
     if (selectedNode.children) return null;
     if (!canSplitSelected) return null;
@@ -470,6 +487,15 @@ export function SubnetTreeCalculator({
           {splitMergeLabel}
         </button>
 
+        <button
+          className="stc__button"
+          onClick={toggleCollapseSelected}
+          disabled={!canCollapseSelected && !canExpandSelected}
+          title={canCollapseSelected ? "Collapse subtree" : canExpandSelected ? "Expand subtree" : "No children to collapse/expand"}
+        >
+          {canCollapseSelected ? "Collapse" : "Expand"}
+        </button>
+
         {error && <div className="stc__error">{error}</div>}
       </div>
 
@@ -499,10 +525,16 @@ export function SubnetTreeCalculator({
                 const isSelected = n.data.id === selectedId;
                 const disabled = !n.data.children && !canSplit(n.data, root.prefix, maxDepth) && n.data.prefix < n.data.bits;
 
+                // FR-057: Visual cues for status
+                const statusClass = n.data.status ? ` stc__node--${n.data.status.toLowerCase()}` : "";
+                const collapsedClass = n.data.collapsed ? " stc__node--collapsed" : "";
+
                 const nodeClass =
                   "stc__node" +
                   (isSelected ? " stc__node--selected" : "") +
-                  (disabled ? " stc__node--disabled" : "");
+                  (disabled ? " stc__node--disabled" : "") +
+                  statusClass +
+                  collapsedClass;
 
                 const title = truncateMiddle(meta.cidr, nodeTitleMax);
 
