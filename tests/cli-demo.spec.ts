@@ -83,6 +83,8 @@ test.describe('Subnet Tree Calculator - CLI Demo', () => {
       await content.evaluate((el, t) => {
         el.innerHTML += `<div class="section-title">${t}</div>`;
       }, title);
+      // Scroll to bottom to show the section title
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       await page.waitForTimeout(1500);
     };
     
@@ -91,12 +93,15 @@ test.describe('Subnet Tree Calculator - CLI Demo', () => {
       await content.evaluate((el, c) => {
         el.innerHTML += `<div class="terminal"><div class="command">$ ${c}</div></div>`;
       }, cmd);
+
+      // Scroll to bottom to show the command
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       await page.waitForTimeout(800);
-      
+
       try {
         const { stdout, stderr } = await execAsync(cmd, { cwd: process.cwd() });
         const output = stdout || stderr;
-        
+
         await content.evaluate((el, o) => {
           const terminals = el.querySelectorAll('.terminal');
           const lastTerminal = terminals[terminals.length - 1];
@@ -109,7 +114,9 @@ test.describe('Subnet Tree Calculator - CLI Demo', () => {
           lastTerminal.innerHTML += `<div class="output error">${e}</div>`;
         }, error.message);
       }
-      
+
+      // Scroll to bottom to show the full output
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       await page.waitForTimeout(2000);
     };
 
