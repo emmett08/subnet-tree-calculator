@@ -146,18 +146,44 @@ The generated videos feature:
 
 ## 🔄 Converting to MP4
 
-If you need MP4 format (for broader compatibility):
+MP4 videos are automatically generated alongside WebM videos for broader compatibility.
+
+### Automatic Conversion
+
+Run tests and convert to MP4 in one command:
+```bash
+npm run playwright:demo:mp4
+```
+
+This will:
+1. Run both Playwright tests
+2. Copy WebM videos to `videos/` directory
+3. Convert both videos to MP4 format
+
+### Manual Conversion
+
+Convert existing WebM videos to MP4:
 
 ```bash
-# Install ffmpeg if not already installed
-brew install ffmpeg
+# Convert both videos
+npm run videos:convert
 
-# Convert web demo
-ffmpeg -i videos/web-demo.webm -c:v libx264 -crf 23 -preset medium videos/web-demo.mp4
+# Convert web demo only
+npm run videos:convert:web
 
-# Convert CLI demo
-ffmpeg -i videos/cli-demo.webm -c:v libx264 -crf 23 -preset medium videos/cli-demo.mp4
+# Convert CLI demo only
+npm run videos:convert:cli
 ```
+
+### Output Files
+
+After conversion, you'll have both formats:
+- `videos/web-demo.webm` (4.4 MB) - Original WebM
+- `videos/web-demo.mp4` (1.5 MB) - Converted MP4
+- `videos/cli-demo.webm` (3.4 MB) - Original WebM
+- `videos/cli-demo.mp4` (762 KB) - Converted MP4
+
+**Note**: MP4 files are significantly smaller due to H.264 compression while maintaining excellent quality.
 
 ## 🔧 Customization
 
