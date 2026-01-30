@@ -61,9 +61,12 @@
     "storybook:serve": "http-server storybook-static -p 6006 -s",
     "test-storybook": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run storybook:serve\" \"wait-on http://127.0.0.1:6006 && test-storybook --url http://127.0.0.1:6006\"",
     "test-storybook:ci": "npm run storybook:build && npm run test-storybook",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "cypress:demo": "concurrently -k -s first -n \"DEV,CYPRESS\" -c \"cyan,green\" \"npm run dev\" \"wait-on http://localhost:5173 && cypress run --spec cypress/e2e/subnet-tree-demo.cy.ts\"",
+    "playwright": "playwright test",
+    "playwright:web": "playwright test tests/web-demo.spec.ts",
+    "playwright:cli": "playwright test tests/cli-demo.spec.ts",
+    "playwright:demo": "playwright test --project=chromium && mkdir -p videos && find test-results -name 'video.webm' -exec sh -c 'if echo \"$1\" | grep -q \"web-demo\"; then cp \"$1\" videos/web-demo.webm; elif echo \"$1\" | grep -q \"cli-demo\"; then cp \"$1\" videos/cli-demo.webm; fi' _ {} \\;",
+    "playwright:ui": "playwright test --ui",
+    "playwright:report": "playwright show-report",
     "lint": "tsc -p tsconfig.build.json --noEmit && echo 'Lint passed'",
     "verify": "npm run lint && npm run test:run && npm run storybook:build && npm run test-storybook"
   },
@@ -75,6 +78,7 @@
     "d3": "^7.9.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.0",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/react-vite": "^8.6.14",
     "@storybook/test": "^8.6.14",

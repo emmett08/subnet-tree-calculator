@@ -19,3 +19,8 @@ lerna-debug.log*
 .efforttrace
 .idea
 .vscode
+
+# Playwright
+/test-results
+/playwright-report
+/playwright/.cache
